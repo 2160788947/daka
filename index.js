@@ -97,10 +97,10 @@ const main = async () => {
     try {
       let msg = await daka(info) // 执行一次打卡流程
       status = true
-      mailMsg += `<div style="color:#18a058;font-size:1.2em;">[打卡成功]<br/>${msg}</div>`
+      mailMsg += `<div style="color:#18a058;font-size:1.2em;">[打卡]<br/>${msg}</div>`
     } catch (error) {
       console.log('打卡失败: ', error.message)
-      mailMsg += `<div style="color:#d03050;font-size:1.2em;">[打卡失败]<br/>${error.message}</div><hr/>`
+      mailMsg += `<div style="color:#d03050;font-size:1.2em;">[打卡]<br/>${error.message}</div><hr/>`
       if (taskNum + 1 > maximum) return // 执行次数上限结束
       console.log('将在1分钟后继续...')
       await syncTimeout(60) // 间隔1分钟, 不能太频繁请求
